@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rashat Milih - Traditional Iraqi Cuisine</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="promo-banner text-center w-100 py-2" style="background-color: #d4af37; color: white; font-weight: bold;">
+            Special Offer: Free Delivery on Orders Over $50! Order Now 
+        </div>
+        <div class="container">
+            <a class="navbar-brand" href="#">Rashat Milih رشة ملح</a>
+            <div class="d-flex align-items-center">
+                <button class="btn btn-outline-light me-3 position-relative" onclick="showCart()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cart-count">
+                        0
+                    </span>
+                </button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#menu">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#special-offers">Special Offers</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="display-4">Rashat Milih رشة ملح</h1>
+                <p class="lead">Experience the authentic taste of Iraqi cuisine in Montreal</p>
+                <a href="#menu" class="btn btn-primary btn-lg">View Our Menu</a>
+            </div>
+            <!-- Add floating badge -->
+            <div class="floating-badge">
+                <div class="badge-content">
+                    <div class="badge-text">20% OFF</div>
+                    <div class="badge-subtext">First Order</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Who We Are</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="about-text text-center">
+                        <p class="lead">Welcome to our family's culinary journey! We are a family of four who brought the authentic flavors of Iraq to Montreal. Our story began in Iraq, where these recipes have been passed down through generations, and now we're sharing them with our new community in Montreal.</p>
+                        <p>At Rashat Milih, every dish is prepared with love and care, using traditional methods and the finest ingredients. Our name "Rashat Milih" (رشة ملح) means "a pinch of salt" in Arabic, symbolizing that special touch that makes every dish perfect.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu-section py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Our Menu</h2>
+            <div class="row" id="menu-items-container">
+                <!-- Menu items will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offers Section -->
+    <section id="special-offers" class="special-offers py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Special Offers</h2>
+            <div class="row g-4">
+                <!-- Family Feast -->
+                <div class="col-md-4">
+                    <div class="offer-card">
+                        <div class="offer-badge">SAVE 25%</div>
+                        <h3>Family Feast</h3>
+                        <p>Perfect for 4-6 people</p>
+                        <ul class="offer-list">
+                            <li>2 × Large Mixed Grill</li>
+                            <li>4 × Iraqi Bread</li>
+                            <li>2 × Large Hummus</li>
+                            <li>1 × Family Size Salad</li>
+                        </ul>
+                        <div class="price">
+                            <span class="original">$120</span>
+                            <span class="discount">$90</span>
+                        </div>
+                        <div class="timer" data-ends="2025-02-03T23:59:59">
+                            Ends in: <span class="countdown"></span>
+                        </div>
+                        <button class="btn btn-primary w-100">Order Now</button>
+                    </div>
+                </div>
+                
+                <!-- Lunch Special -->
+                <div class="col-md-4">
+                    <div class="offer-card">
+                        <div class="offer-badge">LUNCH DEAL</div>
+                        <h3>Lunch Special</h3>
+                        <p>Available 11 AM - 3 PM</p>
+                        <ul class="offer-list">
+                            <li>1 × Main Course</li>
+                            <li>1 × Side Dish</li>
+                            <li>1 × Soft Drink</li>
+                            <li>Free Delivery</li>
+                        </ul>
+                        <div class="price">
+                            <span class="original">$25</span>
+                            <span class="discount">$18</span>
+                        </div>
+                        <div class="timer" data-ends="2025-02-02T15:00:00">
+                            Available: <span class="countdown"></span>
+                        </div>
+                        <button class="btn btn-primary w-100">Order Now</button>
+                    </div>
+                </div>
+
+                <!-- Weekend Special -->
+                <div class="col-md-4">
+                    <div class="offer-card">
+                        <div class="offer-badge">WEEKEND</div>
+                        <h3>Weekend Special</h3>
+                        <p>Valid Saturday & Sunday</p>
+                        <ul class="offer-list">
+                            <li>2 × Main Course</li>
+                            <li>2 × Dessert</li>
+                            <li>Free Delivery</li>
+                            <li>10% Extra Off</li>
+                        </ul>
+                        <div class="price">
+                            <span class="save-text">Save up to $30</span>
+                        </div>
+                        <div class="timer" data-ends="2025-02-08T00:00:00">
+                            Starts in: <span class="countdown"></span>
+                        </div>
+                        <button class="btn btn-primary w-100">Pre-order Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">What Our Customers Say</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                </div>
+                                <p class="card-text">"The most authentic Iraqi food I've had in Montreal! The Dolma reminds me of my grandmother's cooking. A true taste of home."</p>
+                                <footer class="blockquote-footer mt-3">Sarah A.</footer>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                </div>
+                                <p class="card-text">"Incredible flavors! The Kubbah Rice is outstanding, and the service is always warm and friendly. This place is a hidden gem!"</p>
+                                <footer class="blockquote-footer mt-3">Michel L.</footer>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                </div>
+                                <p class="card-text">"The Biryani is simply amazing! Every dish is prepared with such care and attention to detail. A must-try in Montreal!"</p>
+                                <footer class="blockquote-footer mt-3">Yasmin R.</footer>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Modal -->
+    <div class="modal fade" id="cartModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Your Order</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="cart-items" class="mb-4"></div>
+                    <div class="text-end mb-4">
+                        <h5>Total: $<span id="cart-total">0.00</span></h5>
+                    </div>
+                    <form id="orderForm" class="needs-validation" novalidate>
+                        <div class="mb-3">
+                            <label class="form-label">Name *</label>
+                            <input type="text" class="form-control" id="orderName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email *</label>
+                            <input type="email" class="form-control" id="orderEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Phone *</label>
+                            <input type="tel" class="form-control" id="orderPhone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Delivery Address *</label>
+                            <textarea class="form-control" id="orderAddress" rows="2" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Special Instructions</label>
+                            <textarea class="form-control" id="orderInstructions" rows="2"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continue Shopping</button>
+                    <button type="button" class="btn btn-danger" onclick="cart.clearCart()">Clear Cart</button>
+                    <button type="button" class="btn btn-primary" onclick="submitOrder()">Place Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Contact Us</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Name</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Message</label>
+                            <textarea class="form-control" rows="5"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <p>
+                        <i class="fas fa-phone"></i> +1 (514) XXX-XXXX<br>
+                        <i class="fas fa-envelope"></i> info@rashatmilih.com<br>
+                        <i class="fas fa-map-marker-alt"></i> Montreal, QC, Canada
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Hours</h5>
+                    <p>
+                        Monday - Friday: 11:00 AM - 10:00 PM<br>
+                        Saturday - Sunday: 12:00 PM - 11:00 PM
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Follow Us</h5>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/rashatmilih/" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram"></i> @rashatmilih
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <div class="row">
+                <div class="col-12">
+                    <div class="developer-info text-center">
+                        <p>Developed with <i class="fas fa-heart"></i> by Mohammed Al Bunde</p>
+                        <div class="developer-links">
+                            <a href="https://github.com/mohammedalbunde" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                            <a href="https://linkedin.com/in/mohammedalbunde" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-linkedin"></i> LinkedIn
+                            </a>
+                            <a href="mailto:mohammed.albunde@gmail.com">
+                                <i class="fas fa-envelope"></i> Email
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        emailjs.init("YOUR_USER_ID"); // Replace with your EmailJS user ID
+    </script>
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/menu-data.js"></script>
+    <script src="js/menu-manager.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            menuManager.renderMenu();
+        });
+    </script>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{};
+    Tawk_API.onLoad = function(){
+        console.log('Tawk.to loaded successfully');
+    };
+    Tawk_API.onStatusChange = function(status){
+        console.log('Tawk.to status:', status);
+        if(status === 'online') {
+            console.log('Chat is online');
+        }
+    };
+    var Tawk_LoadStart=new Date();
+    (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/679f0328825083258e0efe77/1ij2i8ljc';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+</body>
+</html>
