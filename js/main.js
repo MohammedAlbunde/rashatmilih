@@ -1,13 +1,20 @@
 // Loading Animation
-window.addEventListener('load', () => {
+document.addEventListener('DOMContentLoaded', () => {
     const loadingOverlay = document.querySelector('.loading-overlay');
     if (loadingOverlay) {
         loadingOverlay.style.opacity = '0';
-        setTimeout(() => {
-            loadingOverlay.style.display = 'none';
-        }, 500);
+        loadingOverlay.style.display = 'none';
     }
 });
+
+// Backup timeout to ensure loading overlay is removed
+setTimeout(() => {
+    const loadingOverlay = document.querySelector('.loading-overlay');
+    if (loadingOverlay) {
+        loadingOverlay.style.opacity = '0';
+        loadingOverlay.style.display = 'none';
+    }
+}, 3000); // Force remove after 3 seconds
 
 // Scroll Animations
 const observerOptions = {
