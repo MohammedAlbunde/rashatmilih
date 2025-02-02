@@ -219,10 +219,10 @@ function orderSpecialDeal(dealType) {
     switch(dealType) {
         case 'family':
             items = [
-                { id: 'dolma', name: 'Dolma دولمة', price: 14.99, quantity: 2 },
-                { id: 'kubbah', name: 'Kubbah Rice كبة حلب', price: 16.99, quantity: 2 },
-                { id: 'biryani', name: 'Biryani برياني', price: 18.99, quantity: 2 },
-                { id: 'kleechah', name: 'Kleechah كليجة', price: 8.99, quantity: 4 }
+                { id: 'dolma', name: 'Dolma دولمة', price: 25 CAD, quantity: 1 Kg },
+                { id: 'kubbah', name: 'Kubbah Rice كبة حلب', price: 15 CAD, quantity: 10 pcs },
+                { id: 'biryani', name: 'Potato chab بتيتة جاب', price: 18, quantity: 10 حؤس },
+                { id: 'kleechah', name: 'Kleechah كليجة', price: 25 CAD , quantity: 1 Kg }
             ];
             break;
         case 'lunch':
