@@ -242,33 +242,36 @@
                     <div class="text-end mb-4">
                         <h5>Total: $<span id="cart-total">0.00</span></h5>
                     </div>
-                    <form id="orderForm" class="needs-validation" novalidate>
+                    <form name="order" method="POST" data-netlify="true" action="/order-success.html">
+                        <input type="hidden" name="form-name" value="order">
+                        <input type="hidden" name="order-details" id="order-details">
+                        <input type="hidden" name="order-total" id="order-total">
                         <div class="mb-3">
                             <label class="form-label">Name *</label>
-                            <input type="text" class="form-control" id="orderName" required>
+                            <input type="text" class="form-control" name="customer-name" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Email *</label>
-                            <input type="email" class="form-control" id="orderEmail" required>
+                            <input type="email" class="form-control" name="customer-email" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Phone *</label>
-                            <input type="tel" class="form-control" id="orderPhone" required>
+                            <input type="tel" class="form-control" name="customer-phone" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Delivery Address *</label>
-                            <textarea class="form-control" id="orderAddress" rows="2" required></textarea>
+                            <textarea class="form-control" name="delivery-address" rows="2" required></textarea>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Special Instructions</label>
-                            <textarea class="form-control" id="orderInstructions" rows="2"></textarea>
+                            <textarea class="form-control" name="special-instructions" rows="2"></textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continue Shopping</button>
+                            <button type="button" class="btn btn-danger" onclick="cart.clearCart()">Clear Cart</button>
+                            <button type="submit" class="btn btn-primary">Place Order</button>
                         </div>
                     </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continue Shopping</button>
-                    <button type="button" class="btn btn-danger" onclick="cart.clearCart()">Clear Cart</button>
-                    <button type="button" class="btn btn-primary" onclick="submitOrder()">Place Order</button>
                 </div>
             </div>
         </div>

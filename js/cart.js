@@ -53,43 +53,35 @@ class Cart {
     }
 
     updateCartUI() {
-        const cartCount = document.getElementById('cart-count');
         const cartItems = document.getElementById('cart-items');
         const cartTotal = document.getElementById('cart-total');
+        const orderDetails = document.getElementById('order-details');
+        const orderTotal = document.getElementById('order-total');
         
-        // Update cart count
-        const totalItems = this.items.reduce((sum, item) => sum + item.quantity, 0);
-        cartCount.textContent = totalItems;
-        
-        // Update cart items list
         if (cartItems) {
-            cartItems.innerHTML = '';
-            this.items.forEach(item => {
-                const itemElement = document.createElement('div');
-                itemElement.className = 'cart-item';
-                itemElement.innerHTML = `
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                        <div>
-                            <h6 class="mb-0">${item.name}</h6>
-                            <small class="text-muted">$${item.price.toFixed(2)} each</small>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <button class="btn btn-sm btn-outline-secondary me-2" onclick="cart.updateQuantity('${item.id}', ${item.quantity - 1})">-</button>
-                            <span class="mx-2">${item.quantity}</span>
-                            <button class="btn btn-sm btn-outline-secondary ms-2" onclick="cart.updateQuantity('${item.id}', ${item.quantity + 1})">+</button>
-                            <button class="btn btn-sm btn-outline-danger ms-3" onclick="cart.removeItem('${item.id}')">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </div>
+            cartItems.innerHTML = this.items.map(item => `
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div>
+                        <h6 class="mb-0">${item.name}</h6>
+                        <small class="text-muted">$${item.price.toFixed(2)} each</small>
                     </div>
-                `;
-                cartItems.appendChild(itemElement);
-            });
+                    <div class="d-flex align-items-center">
+                        <button class="btn btn-sm btn-outline-secondary me-2" onclick="cart.updateQuantity('${item.id}', ${item.quantity - 1})">-</button>
+                        <span class="mx-2">${item.quantity}</span>
+                        <button class="btn btn-sm btn-outline-secondary ms-2" onclick="cart.updateQuantity('${item.id}', ${item.quantity + 1})">+</button>
+                    </div>
+                </div>
+            `).join('');
         }
         
-        // Update total
         if (cartTotal) {
-            cartTotal.textContent = `$${this.total.toFixed(2)}`;
+            cartTotal.textContent = this.total.toFixed(2);
+        }
+
+        // Update hidden form fields for order details
+        if (orderDetails && orderTotal) {
+            orderDetails.value = JSON.stringify(this.items);
+            orderTotal.value = this.total.toFixed(2);
         }
     }
 }
