@@ -1,8 +1,4 @@
 const menuItems = {
-    "specialNote": {
-        "id": "specialNote",
-        "description": "🎁 A Special Thank You: With every order, we include a complimentary gift as our way of sharing the warmth and hospitality of Iraqi culture. It's our small way of saying thank you for being part of our extended family!"
-    },
     "dolma": {
         "id": "dolma",
         "name": "Dolma دولمة",
