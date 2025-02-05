@@ -50,6 +50,10 @@ class Cart {
         this.total = 0;
         this.saveCart();
         this.updateCartUI();
+        const modal = bootstrap.Modal.getInstance(document.getElementById('cartModal'));
+        if (modal) {
+            modal.hide();
+        }
     }
 
     updateCartUI() {
@@ -66,9 +70,9 @@ class Cart {
                         <small class="text-muted">$${item.price.toFixed(2)} each</small>
                     </div>
                     <div class="d-flex align-items-center">
-                        <button class="btn btn-sm btn-outline-secondary me-2" onclick="cart.updateQuantity('${item.id}', ${item.quantity - 1})">-</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary me-2" onclick="cart.updateQuantity('${item.id}', ${item.quantity - 1})">-</button>
                         <span class="mx-2">${item.quantity}</span>
-                        <button class="btn btn-sm btn-outline-secondary ms-2" onclick="cart.updateQuantity('${item.id}', ${item.quantity + 1})">+</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary ms-2" onclick="cart.updateQuantity('${item.id}', ${item.quantity + 1})">+</button>
                     </div>
                 </div>
             `).join('');
@@ -78,9 +82,13 @@ class Cart {
             cartTotal.textContent = this.total.toFixed(2);
         }
 
-        // Update hidden form fields for order details
+        // Update hidden form fields with order details
         if (orderDetails && orderTotal) {
-            orderDetails.value = JSON.stringify(this.items);
+            const formattedItems = this.items.map(item => 
+                `${item.name} x${item.quantity} ($${(item.price * item.quantity).toFixed(2)})`
+            ).join('\n');
+            
+            orderDetails.value = formattedItems;
             orderTotal.value = this.total.toFixed(2);
         }
     }

@@ -238,11 +238,11 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <div id="cart-items" class="mb-4"></div>
-                    <div class="text-end mb-4">
-                        <h5>Total: $<span id="cart-total">0.00</span></h5>
-                    </div>
-                    <form name="order" method="POST" data-netlify="true" action="/order-success.html">
+                    <form name="order" method="POST" data-netlify="true">
+                        <div id="cart-items" class="mb-4"></div>
+                        <div class="text-end mb-4">
+                            <h5>Total: $<span id="cart-total">0.00</span></h5>
+                        </div>
                         <input type="hidden" name="form-name" value="order">
                         <input type="hidden" name="order-details" id="order-details">
                         <input type="hidden" name="order-total" id="order-total">
@@ -266,9 +266,9 @@
                             <label class="form-label">Special Instructions</label>
                             <textarea class="form-control" name="special-instructions" rows="2"></textarea>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continue Shopping</button>
-                            <button type="button" class="btn btn-danger" onclick="cart.clearCart()">Clear Cart</button>
+                        <div class="text-end mt-4">
+                            <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Continue Shopping</button>
+                            <button type="button" class="btn btn-danger me-2" onclick="cart.clearCart()">Clear Cart</button>
                             <button type="submit" class="btn btn-primary">Place Order</button>
                         </div>
                     </form>
@@ -276,6 +276,17 @@
             </div>
         </div>
     </div>
+
+    <!-- Hidden Netlify Form -->
+    <form name="order" netlify hidden>
+        <input type="text" name="customer-name">
+        <input type="email" name="customer-email">
+        <input type="tel" name="customer-phone">
+        <textarea name="delivery-address"></textarea>
+        <textarea name="special-instructions"></textarea>
+        <input type="text" name="order-details">
+        <input type="text" name="order-total">
+    </form>
 
     <!-- Contact Section -->
     <section id="contact" class="contact-section py-5 bg-light">
