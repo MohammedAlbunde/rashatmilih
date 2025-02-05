@@ -969,11 +969,7 @@ body {
 
 /* Promotional Banner */
 .promo-banner {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1030;
+    display: none;
 }
 
 /* Floating Badge */
