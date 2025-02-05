@@ -458,9 +458,18 @@
                         </div>
                         <!-- Visitor Counter -->
                         <div class="visitor-counter mt-3">
-                            <a href="https://www.webfreecounter.com/" target="_blank">
-                                <img src="https://www.webfreecounter.com/hit.php?id=gvopxqd&nd=6&style=12" alt="visitor counter">
-                            </a>
+                            <div class="counter-text">
+                                <i class="fas fa-users"></i> Visitors Today: 
+                                <span id="visitor-count" class="counter-number">
+                                    <script>
+                                        fetch('https://api.countapi.xyz/hit/rashat-milih.com/visits')
+                                            .then(response => response.json())
+                                            .then(data => {
+                                                document.getElementById('visitor-count').textContent = data.value.toLocaleString();
+                                            });
+                                    </script>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>

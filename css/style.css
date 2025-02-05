@@ -1238,9 +1238,29 @@ html {
     margin-top: 1rem;
     padding: 0.5rem;
     display: inline-block;
+    font-size: 1rem;
+    color: #666;
 }
 
-.visitor-counter img {
-    border: none;
-    height: 24px;
+.counter-dev {
+    --counter-color: #d4af37 !important;
+    --counter-background: transparent !important;
+    --counter-text-color: #666 !important;
+    font-family: inherit !important;
+}
+
+.counter-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.counter-number {
+    font-weight: bold;
+    color: #d4af37;
+    margin-left: 0.25rem;
+}
+
+.visitor-counter i {
+    color: #d4af37;
 }
