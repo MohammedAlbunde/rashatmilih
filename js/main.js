@@ -323,59 +323,53 @@ if (themeToggle) {
     themeToggle.remove();
 }
 
+// Visitor Counter
+document.addEventListener('DOMContentLoaded', function() {
+    function updateCounter() {
+        // Get or initialize the counter from localStorage
+        let counter = localStorage.getItem('visitorCounter');
+        if (!counter) {
+            counter = {
+                date: new Date().toLocaleDateString(),
+                count: 0
+            };
+        } else {
+            counter = JSON.parse(counter);
+            // Reset counter if it's a new day
+            if (counter.date !== new Date().toLocaleDateString()) {
+                counter.date = new Date().toLocaleDateString();
+                counter.count = 0;
+            }
+        }
+        
+        // Increment the counter
+        counter.count++;
+        
+        // Save back to localStorage
+        localStorage.setItem('visitorCounter', JSON.stringify(counter));
+        
+        // Update the display
+        const counterElement = document.getElementById('visitor-count');
+        if (counterElement) {
+            counterElement.textContent = counter.count.toLocaleString();
+        }
+        
+        // Update the date display
+        const dateElement = document.getElementById('current-date');
+        if (dateElement) {
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            dateElement.textContent = new Date().toLocaleDateString('en-US', options);
+        }
+    }
+
+    // Run the counter update
+    updateCounter();
+});
+
 // Initialize Supabase client
 const supabaseUrl = 'https://xyzcompany.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYzMjUwNjQwMCwiZXhwIjoxOTQ4MDgyNDAwfQ.2Jm6g9eB1XJ1g9XJ1g9XJ1g9XJ1g9XJ1g';
 const supabase = supabase.createClient(supabaseUrl, supabaseKey);
-
-// Update visitor count
-async function updateVisitorCount() {
-    try {
-        // Get today's date in YYYY-MM-DD format
-        const today = new Date().toISOString().split('T')[0];
-        
-        // Update the visitor count for today
-        const { data, error } = await supabase
-            .from('visitor_counts')
-            .upsert(
-                { date: today, count: 1 },
-                { onConflict: 'date', count: sql`count + 1` }
-            );
-
-        if (error) throw error;
-
-        // Get the updated count
-        const { data: countData, error: countError } = await supabase
-            .from('visitor_counts')
-            .select('count')
-            .eq('date', today)
-            .single();
-
-        if (countError) throw countError;
-
-        // Update the display
-        document.getElementById('visitor-count').textContent = countData.count.toLocaleString();
-        
-        // Update the date display
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        document.getElementById('current-date').textContent = new Date().toLocaleDateString('en-US', options);
-    } catch (error) {
-        console.error('Error updating visitor count:', error);
-    }
-}
-
-// Initialize counter when page loads
-updateVisitorCount();
-
-// Set up real-time subscription for counter updates
-const subscription = supabase
-    .from('visitor_counts')
-    .on('*', payload => {
-        if (payload.new) {
-            document.getElementById('visitor-count').textContent = payload.new.count.toLocaleString();
-        }
-    })
-    .subscribe();
 
 // Firebase configuration
 const firebaseConfig = {
