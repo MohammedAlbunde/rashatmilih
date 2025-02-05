@@ -33,6 +33,11 @@ class MenuManager {
                 Add to Cart <i class="fas fa-cart-plus"></i>
             </button>
         ` : '';
+        const shareButton = `
+            <button class="btn btn-share" onclick="menuManager.shareMenuItem('${encodeURIComponent(item.name)}', '${encodeURIComponent(item.description)}', '${encodeURIComponent(window.location.href)}')">
+                <i class="fas fa-share-alt"></i>
+            </button>
+        `;
 
         return `
             <div class="col-lg-6 mb-4">
@@ -43,11 +48,54 @@ class MenuManager {
                         <div class="d-flex justify-content-between align-items-center mt-3">
                             <span class="h5 mb-0">${priceDisplay}</span>
                             ${addToCartButton}
+                            ${shareButton}
                         </div>
                     </div>
                 </div>
             </div>
         `;
+    }
+
+    shareMenuItem(name, description, url) {
+        if (navigator.share) {
+            // Use Web Share API if available
+            navigator.share({
+                title: name,
+                text: description,
+                url: url
+            }).catch(console.error);
+        } else {
+            // Fallback to custom share modal
+            const shareModal = document.createElement('div');
+            shareModal.className = 'share-modal';
+            shareModal.innerHTML = `
+                <div class="share-modal-content">
+                    <h4>Share ${decodeURIComponent(name)}</h4>
+                    <div class="share-buttons">
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=${url}" target="_blank" class="share-button facebook">
+                            <i class="fab fa-facebook"></i> Facebook
+                        </a>
+                        <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(decodeURIComponent(description))}&url=${url}" target="_blank" class="share-button twitter">
+                            <i class="fab fa-twitter"></i> Twitter
+                        </a>
+                        <a href="https://wa.me/?text=${encodeURIComponent(decodeURIComponent(name + ': ' + description))}" target="_blank" class="share-button whatsapp">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                        <button onclick="this.closest('.share-modal').remove()" class="close-button">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(shareModal);
+            
+            // Remove modal when clicking outside
+            shareModal.addEventListener('click', (e) => {
+                if (e.target === shareModal) {
+                    shareModal.remove();
+                }
+            });
+        }
     }
 
     renderMenu() {
