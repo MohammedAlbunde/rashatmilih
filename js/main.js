@@ -195,26 +195,47 @@ function orderSpecialDeal(dealType) {
     switch(dealType) {
         case 'family':
             items = [
-                { id: 'dolma', name: 'Dolma دولمة', price: 25 CAD, quantity: 1 Kg },
-                { id: 'kubbah', name: 'Kubbah Rice كبة حلب', price: 15 CAD, quantity: 10 pcs },
-                { id: 'biryani', name: 'Potato chab بتيتة جاب', price: 18, quantity: 10 حؤس },
-                { id: 'kleechah', name: 'Kleechah كليجة', price: 25 CAD , quantity: 1 Kg }
+                { id: 'dolma', name: 'Dolma دولمة', price: 25, quantity: 1 },
+                { id: 'kubbah', name: 'Kubbah Rice كبة حلب', price: 15, quantity: 10 },
+                { id: 'potato_chap', name: 'Potato Chap بطاطا جاب', price: 18, quantity: 10 },
+                { id: 'kleechah', name: 'Kleechah كليجة', price: 25, quantity: 1 }
             ];
             break;
         case 'lunch':
-            showLunchSpecialModal();
-            return;
+            items = [
+                { id: 'dolma', name: 'Dolma دولمة', price: 25, quantity: 1 },
+                { id: 'kubbah', name: 'Kubbah Rice كبة حلب', price: 15, quantity: 5 }
+            ];
+            break;
         case 'weekend':
-            showWeekendSpecialModal();
-            return;
+            items = [
+                { id: 'potato_chap', name: 'Potato Chap بطاطا جاب', price: 18, quantity: 5 },
+                { id: 'kleechah', name: 'Kleechah كليجة', price: 25, quantity: 1 }
+            ];
+            break;
     }
 
-    // Add items to cart with special pricing
-    items.forEach(item => {
-        cart.addItem(item.id, item.name, item.price * 0.75, item.quantity); // 25% off
-    });
-    
-    showCart();
+    // Add items to cart with special pricing (25% off)
+    if (items.length > 0) {
+        items.forEach(item => {
+            // Calculate discounted price
+            const discountedPrice = (item.price * 0.75).toFixed(2);
+            // Add to cart
+            cart.addItem({
+                id: item.id,
+                name: item.name,
+                price: parseFloat(discountedPrice),
+                quantity: item.quantity
+            });
+        });
+        
+        // Show success message
+        const toast = new bootstrap.Toast(document.getElementById('orderSuccessToast'));
+        toast.show();
+        
+        // Open cart modal
+        showCart();
+    }
 }
 
 // Show Special Offer Modal
