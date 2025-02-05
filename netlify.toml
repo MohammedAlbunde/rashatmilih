@@ -1,0 +1,6 @@
+[build]
+  publish = "."
+
+[forms]
+  contact = "contact"
+  order = "order"
