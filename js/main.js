@@ -322,3 +322,11 @@ const themeToggle = document.getElementById('themeToggle');
 if (themeToggle) {
     themeToggle.remove();
 }
+
+// Visitor Counter
+fetch('https://api.countapi.xyz/hit/rashatmilih.com/visits')
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('visits').textContent = data.value.toLocaleString();
+    })
+    .catch(error => console.error('Error fetching visitor count:', error));
