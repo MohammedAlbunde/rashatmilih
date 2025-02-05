@@ -1218,91 +1218,13 @@ html {
     margin: 0;
 }
 
-/* Dark Mode Styles */
+/* Remove all dark mode related styles */
 [data-theme="dark"] {
-    --primary-color: #D4AF37;
-    --secondary-color: #8B4513;
-    --text-color: #e1e1e1;
-    --light-bg: #1a1a1a;
-    --card-bg: #2d2d2d;
-    --body-bg: #121212;
-    --footer-bg: #1a1a1a;
-    --border-color: #404040;
+    display: none;
 }
 
-[data-theme="dark"] body {
-    background-color: var(--body-bg);
-    color: var(--text-color);
-}
-
-[data-theme="dark"] .card {
-    background-color: var(--card-bg);
-    border-color: var(--border-color);
-}
-
-[data-theme="dark"] .navbar.scrolled {
-    background-color: rgba(18, 18, 18, 0.95) !important;
-}
-
-[data-theme="dark"] .footer {
-    background-color: var(--footer-bg);
-    border-top: 1px solid var(--border-color);
-}
-
-[data-theme="dark"] .special-note {
-    background-color: #2d2d2d;
-    border-color: var(--primary-color);
-}
-
-[data-theme="dark"] .form-control,
-[data-theme="dark"] .form-select {
-    background-color: var(--card-bg);
-    border-color: var(--border-color);
-    color: var(--text-color);
-}
-
-[data-theme="dark"] .form-control:focus,
-[data-theme="dark"] .form-select:focus {
-    background-color: var(--card-bg);
-    color: var(--text-color);
-}
-
-[data-theme="dark"] .modal-content {
-    background-color: var(--card-bg);
-    border-color: var(--border-color);
-}
-
-[data-theme="dark"] .modal-header {
-    border-bottom-color: var(--border-color);
-}
-
-[data-theme="dark"] .modal-footer {
-    border-top-color: var(--border-color);
-}
-
-/* Theme Toggle Button */
 .theme-toggle {
-    position: fixed;
-    bottom: 100px;
-    right: 20px;
-    z-index: 1000;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.theme-toggle:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    display: none;
 }
 
 .card {
