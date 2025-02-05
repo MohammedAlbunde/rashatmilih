@@ -574,7 +574,7 @@ body {
 
 .language-selector button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 /* RTL Support */
@@ -1200,22 +1200,26 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Special Note Card */
+/* Special Note */
 .special-note {
-    background-color: #fff9e6;
-    border: 2px solid var(--primary-color);
-    border-radius: 10px;
+    background-color: rgba(212, 175, 55, 0.1);
+    border: 1px solid #d4af37;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 30px auto;
+    max-width: 800px;
 }
 
-.special-note .card-body {
-    padding: 1.5rem;
+.special-note h4 {
+    color: #d4af37;
+    margin-bottom: 10px;
+    font-weight: 600;
 }
 
-.special-note .card-text {
-    font-size: 1.1rem;
-    color: #333;
-    text-align: center;
-    margin: 0;
+.special-note p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 0;
 }
 
 /* Remove all dark mode related styles */
