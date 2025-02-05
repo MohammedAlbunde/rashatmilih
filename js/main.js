@@ -324,7 +324,7 @@ if (themeToggle) {
 }
 
 // Visitor Counter
-fetch('https://api.countapi.xyz/hit/rashatmilih.com/visits')
+fetch('https://api.countapi.xyz/hit/rashat-milih.com/visits')
     .then(response => response.json())
     .then(data => {
         document.getElementById('visits').textContent = data.value.toLocaleString();
