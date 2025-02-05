@@ -1232,3 +1232,15 @@ html {
     border-color: var(--border-color);
     transition: background-color 0.3s, border-color 0.3s;
 }
+
+/* Visitor Counter */
+.visitor-counter {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    display: inline-block;
+}
+
+.visitor-counter img {
+    border: none;
+    height: 24px;
+}
