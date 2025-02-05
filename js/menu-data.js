@@ -29,7 +29,7 @@ const menuItems = {
         "nameEn": "Kleechah",
         "nameAr": "كليجة",
         "price": 25.00,
-        "description": "These beloved Iraqi cookies are made with the same love and care as they were in our family's kitchen in Baghdad. Filled with a heavenly mixture of dates, walnuts, and cardamom, each cookie is decorated by hand with traditional patterns that tell stories of our heritage."
+        "description": "These beloved Iraqi cookies are handcrafted with love using our family's traditional recipe from Baghdad. Available with a variety of delightful fillings - from classic dates to rich walnuts, crunchy peanuts, and exotic coconut. Each filling offers its own unique taste experience and is priced accordingly. Our signature cardamom-infused dough is carefully decorated by hand with traditional patterns, making each piece a work of art that tells the story of our heritage. *Prices vary based on filling choice - please inquire for specific options."
     },
     "sambusah": {
         "id": "sambusah",
