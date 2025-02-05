@@ -1,4 +1,8 @@
 const menuItems = {
+    "specialNote": {
+        "id": "specialNote",
+        "description": "🎁 A Special Thank You: With every order, we include a complimentary gift as our way of sharing the warmth and hospitality of Iraqi culture. It's our small way of saying thank you for being part of our extended family!"
+    },
     "dolma": {
         "id": "dolma",
         "name": "Dolma دولمة",
@@ -38,6 +42,30 @@ const menuItems = {
         "nameAr": "سمبوسة",
         "price": 15.00,
         "description": "Crispy triangles of joy filled with your choice of seasoned meat or vegetables. Each Sambusah is folded by hand with care and precision, creating the perfect pocket of flavors that transport you straight to the bustling streets of Baghdad."
+    },
+    "potatoChap": {
+        "id": "potatoChap",
+        "name": "Potato Chap بطاطا جاب",
+        "nameEn": "Potato Chap",
+        "nameAr": "بطاطا جاب",
+        "price": 18.00,
+        "description": "A beloved Iraqi street food elevated to perfection - crispy golden exterior giving way to a heavenly filling of seasoned mashed potatoes and tender meat. Each piece is carefully shaped by hand and fried to achieve that perfect crunch. Our family recipe ensures each bite is packed with authentic Iraqi flavors and memories of Baghdad's vibrant streets."
+    },
+    "turkishSmeet": {
+        "id": "turkishSmeet",
+        "name": "Turkish Smeet سميط تركي",
+        "nameEn": "Turkish Smeet",
+        "nameAr": "سميط تركي",
+        "price": 20.00,
+        "description": "Delightfully crispy Turkish-style sesame rings, baked to golden perfection. Our Smeet brings the taste of Istanbul's streets to your home, with a perfectly chewy interior and a generous coating of toasted sesame seeds. Available in packs of 10 pieces, these make the perfect accompaniment to tea or coffee. Each batch is freshly baked using our special recipe that combines tradition with a touch of modern flair."
+    },
+    "biryani": {
+        "id": "biryani",
+        "name": "Biryani برياني",
+        "nameEn": "Biryani",
+        "nameAr": "برياني",
+        "price": null,
+        "description": "Coming Soon! Our master chef is perfecting this aromatic rice dish, layered with tender meat, fragrant spices, and caramelized onions. Each pot will be slow-cooked to ensure the perfect harmony of flavors. Stay tuned for this exciting addition to our menu!"
     },
     "stuffedChicken": {
         "id": "stuffedChicken",
