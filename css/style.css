@@ -978,6 +978,7 @@ body {
 
 /* Floating Badge */
 .floating-badge {
+    display: none;
     position: absolute;
     top: 100px;
     right: 30px;
@@ -999,11 +1000,13 @@ body {
 }
 
 .badge-content {
+    display: none;
     text-align: center;
     color: white;
 }
 
 .badge-text {
+    display: none;
     font-size: 24px;
     font-weight: bold;
     line-height: 1;
@@ -1011,6 +1014,7 @@ body {
 }
 
 .badge-subtext {
+    display: none;
     font-size: 14px;
     opacity: 0.9;
 }

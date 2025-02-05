@@ -223,12 +223,15 @@ function showSpecialOffer() {
     modal.show();
 }
 
-// First-time visitor offer
-if (!localStorage.getItem('returningVisitor')) {
-    localStorage.setItem('returningVisitor', 'true');
-    setTimeout(() => {
-        showSpecialOffer();
-    }, 5000);
+// Remove first-time visitor code
+if (localStorage.getItem('returningVisitor')) {
+    localStorage.removeItem('returningVisitor');
+}
+
+// Remove the modal if it exists
+const firstTimeModal = document.getElementById('firstTimeModal');
+if (firstTimeModal) {
+    firstTimeModal.remove();
 }
 
 // Handle scroll-to-top button
