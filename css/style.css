@@ -1193,3 +1193,21 @@ body {
 html {
     scroll-behavior: smooth;
 }
+
+/* Special Note Card */
+.special-note {
+    background-color: #fff9e6;
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+}
+
+.special-note .card-body {
+    padding: 1.5rem;
+}
+
+.special-note .card-text {
+    font-size: 1.1rem;
+    color: #333;
+    text-align: center;
+    margin: 0;
+}

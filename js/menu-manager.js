@@ -5,10 +5,35 @@ class MenuManager {
     }
 
     formatPrice(price) {
-        return price.toFixed(2);
+        return price ? price.toFixed(2) : '';
+    }
+
+    createSpecialNote(item) {
+        return `
+            <div class="col-12 mb-4">
+                <div class="card special-note">
+                    <div class="card-body">
+                        <p class="card-text">${item.description}</p>
+                    </div>
+                </div>
+            </div>
+        `;
     }
 
     createMenuItemCard(item) {
+        // Handle special note
+        if (item.id === 'specialNote') {
+            return this.createSpecialNote(item);
+        }
+
+        // For regular menu items
+        const priceDisplay = item.price ? `$${this.formatPrice(item.price)}` : 'Coming Soon';
+        const addToCartButton = item.price ? `
+            <button class="btn-add-cart" onclick="cart.addItem('${item.id}', '${item.name}', ${item.price})">
+                Add to Cart <i class="fas fa-cart-plus"></i>
+            </button>
+        ` : '';
+
         return `
             <div class="col-lg-6 mb-4">
                 <div class="card h-100">
@@ -16,10 +41,8 @@ class MenuManager {
                         <h3 class="card-title">${item.name}</h3>
                         <p class="card-text">${item.description}</p>
                         <div class="d-flex justify-content-between align-items-center mt-3">
-                            <span class="h5 mb-0">$${this.formatPrice(item.price)}</span>
-                            <button class="btn-add-cart" onclick="cart.addItem('${item.id}', '${item.name}', ${item.price})">
-                                Add to Cart <i class="fas fa-cart-plus"></i>
-                            </button>
+                            <span class="h5 mb-0">${priceDisplay}</span>
+                            ${addToCartButton}
                         </div>
                     </div>
                 </div>
@@ -31,8 +54,15 @@ class MenuManager {
         if (!this.menuContainer) return;
         
         let menuHTML = '';
+        // First render special note if exists
+        if (this.items.specialNote) {
+            menuHTML += this.createMenuItemCard(this.items.specialNote);
+        }
+        // Then render all other items
         for (const itemId in this.items) {
-            menuHTML += this.createMenuItemCard(this.items[itemId]);
+            if (itemId !== 'specialNote') {
+                menuHTML += this.createMenuItemCard(this.items[itemId]);
+            }
         }
         this.menuContainer.innerHTML = menuHTML;
     }
@@ -41,7 +71,6 @@ class MenuManager {
         if (this.items[itemId]) {
             this.items[itemId].price = newPrice;
             this.renderMenu();
-            // You might want to save to localStorage or server here
         }
     }
 
@@ -49,14 +78,12 @@ class MenuManager {
         if (!itemData.id) return;
         this.items[itemData.id] = itemData;
         this.renderMenu();
-        // You might want to save to localStorage or server here
     }
 
     removeItem(itemId) {
         if (this.items[itemId]) {
             delete this.items[itemId];
             this.renderMenu();
-            // You might want to save to localStorage or server here
         }
     }
 }
