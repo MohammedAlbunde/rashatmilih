@@ -1240,25 +1240,27 @@ html {
     display: inline-block;
     font-size: 1rem;
     color: #666;
-}
-
-.counter-dev {
-    --counter-color: #d4af37 !important;
-    --counter-background: transparent !important;
-    --counter-text-color: #666 !important;
-    font-family: inherit !important;
+    text-align: center;
 }
 
 .counter-text {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    margin-bottom: 0.25rem;
 }
 
 .counter-number {
     font-weight: bold;
     color: #d4af37;
     margin-left: 0.25rem;
+    font-size: 1.2rem;
+}
+
+.counter-date {
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: 0.25rem;
 }
 
 .visitor-counter i {

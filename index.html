@@ -460,15 +460,10 @@
                         <div class="visitor-counter mt-3">
                             <div class="counter-text">
                                 <i class="fas fa-users"></i> Visitors Today: 
-                                <span id="visitor-count" class="counter-number">
-                                    <script>
-                                        fetch('https://api.countapi.xyz/hit/rashat-milih.com/visits')
-                                            .then(response => response.json())
-                                            .then(data => {
-                                                document.getElementById('visitor-count').textContent = data.value.toLocaleString();
-                                            });
-                                    </script>
-                                </span>
+                                <span id="visitor-count" class="counter-number">0</span>
+                            </div>
+                            <div class="counter-date text-muted">
+                                <small id="current-date"></small>
                             </div>
                         </div>
                     </div>
@@ -497,5 +492,7 @@
             menuManager.renderMenu();
         });
     </script>
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 </body>
 </html>

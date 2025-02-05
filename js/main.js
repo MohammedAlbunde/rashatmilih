@@ -323,10 +323,88 @@ if (themeToggle) {
     themeToggle.remove();
 }
 
-// Visitor Counter
-fetch('https://api.countapi.xyz/hit/rashat-milih.com/visits')
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById('visits').textContent = data.value.toLocaleString();
+// Initialize Supabase client
+const supabaseUrl = 'https://xyzcompany.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYzMjUwNjQwMCwiZXhwIjoxOTQ4MDgyNDAwfQ.2Jm6g9eB1XJ1g9XJ1g9XJ1g9XJ1g9XJ1g';
+const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+// Update visitor count
+async function updateVisitorCount() {
+    try {
+        // Get today's date in YYYY-MM-DD format
+        const today = new Date().toISOString().split('T')[0];
+        
+        // Update the visitor count for today
+        const { data, error } = await supabase
+            .from('visitor_counts')
+            .upsert(
+                { date: today, count: 1 },
+                { onConflict: 'date', count: sql`count + 1` }
+            );
+
+        if (error) throw error;
+
+        // Get the updated count
+        const { data: countData, error: countError } = await supabase
+            .from('visitor_counts')
+            .select('count')
+            .eq('date', today)
+            .single();
+
+        if (countError) throw countError;
+
+        // Update the display
+        document.getElementById('visitor-count').textContent = countData.count.toLocaleString();
+        
+        // Update the date display
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString('en-US', options);
+    } catch (error) {
+        console.error('Error updating visitor count:', error);
+    }
+}
+
+// Initialize counter when page loads
+updateVisitorCount();
+
+// Set up real-time subscription for counter updates
+const subscription = supabase
+    .from('visitor_counts')
+    .on('*', payload => {
+        if (payload.new) {
+            document.getElementById('visitor-count').textContent = payload.new.count.toLocaleString();
+        }
     })
-    .catch(error => console.error('Error fetching visitor count:', error));
+    .subscribe();
+
+// Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyDXhQo_2O8yjWIFHqxnFrQgXlQRF9q2gQY",
+    authDomain: "rashat-milih.firebaseapp.com",
+    databaseURL: "https://rashat-milih-default-rtdb.firebaseio.com",
+    projectId: "rashat-milih",
+    storageBucket: "rashat-milih.appspot.com",
+    messagingSenderId: "946916893340",
+    appId: "1:946916893340:web:8f5d9c8f9f9f9f9f9f9f9f"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const database = firebase.database();
+const visitorCountRef = database.ref('visitorCount');
+
+// Update visitor count
+function updateVisitorCount() {
+    visitorCountRef.transaction((currentCount) => {
+        return (currentCount || 0) + 1;
+    });
+}
+
+// Listen for visitor count changes
+visitorCountRef.on('value', (snapshot) => {
+    const count = snapshot.val() || 0;
+    document.getElementById('visitorCount').textContent = count.toLocaleString();
+});
+
+// Update count when page loads
+updateVisitorCount();
