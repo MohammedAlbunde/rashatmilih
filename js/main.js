@@ -1,20 +1,3 @@
-// Loading Animation
-function hideLoadingOverlay() {
-    const loadingOverlay = document.querySelector('.loading-overlay');
-    if (loadingOverlay) {
-        loadingOverlay.classList.add('hidden');
-        setTimeout(() => {
-            loadingOverlay.style.display = 'none';
-        }, 300);
-    }
-}
-
-// Hide loading overlay when DOM is ready
-document.addEventListener('DOMContentLoaded', hideLoadingOverlay);
-
-// Backup timeout to ensure loading overlay is removed
-setTimeout(hideLoadingOverlay, 2000);
-
 // Scroll Animations
 const observerOptions = {
     root: null,
@@ -30,7 +13,7 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-document.addEventListener('DOMContentLoaded', () => {
+function initScrollAnimations() {
     // Observe menu items for scroll animation
     const menuItems = document.querySelectorAll('.menu-item');
     menuItems.forEach(item => observer.observe(item));
@@ -86,10 +69,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+}
 
-    // Language handling
-    let currentLang = localStorage.getItem('language') || 'en';
+// Language handling
+let currentLang = localStorage.getItem('language') || 'en';
 
+function initLanguageSelector() {
     function setLanguage(lang) {
         if (!translations[lang]) return;
         
@@ -116,22 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     setLanguage(currentLang);
-});
-
-// Welcome Animation
-document.addEventListener('DOMContentLoaded', function() {
-    // Show welcome animation only once per session
-    if (!sessionStorage.getItem('welcomed')) {
-        const welcomeOverlay = document.querySelector('.welcome-overlay');
-        welcomeOverlay.style.display = 'flex';
-        sessionStorage.setItem('welcomed', 'true');
-
-        // Remove overlay after animation
-        setTimeout(() => {
-            welcomeOverlay.style.display = 'none';
-        }, 4500); // Total animation duration + delay
-    }
-});
+}
 
 // Countdown Timers
 function updateTimers() {
@@ -160,31 +130,31 @@ function updateTimers() {
     });
 }
 
-// Update timers every second
-setInterval(updateTimers, 1000);
-updateTimers(); // Initial update
-
-// Smooth scroll for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
+// Initialize all components when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize scroll animations
+    initScrollAnimations();
+    
+    // Initialize language selector
+    initLanguageSelector();
+    
+    // Initialize special offers
+    updateTimers();
+    setInterval(updateTimers, 1000);
 });
 
-// Navbar color change on scroll
-window.addEventListener('scroll', function() {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
+// Welcome Animation
+document.addEventListener('DOMContentLoaded', function() {
+    // Show welcome animation only once per session
+    if (!sessionStorage.getItem('welcomed')) {
+        const welcomeOverlay = document.querySelector('.welcome-overlay');
+        welcomeOverlay.style.display = 'flex';
+        sessionStorage.setItem('welcomed', 'true');
+
+        // Remove overlay after animation
+        setTimeout(() => {
+            welcomeOverlay.style.display = 'none';
+        }, 4500); // Total animation duration + delay
     }
 });
 
