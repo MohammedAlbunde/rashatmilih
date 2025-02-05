@@ -28,27 +28,27 @@ class MenuManager {
 
         // For regular menu items
         const priceDisplay = item.price ? `$${this.formatPrice(item.price)}` : 'Coming Soon';
-        const addToCartButton = item.price ? `
-            <button class="btn-add-cart" onclick="cart.addItem('${item.id}', '${item.name}', ${item.price})">
-                Add to Cart <i class="fas fa-cart-plus"></i>
-            </button>
-        ` : '';
-        const shareButton = `
-            <button class="btn btn-share" onclick="menuManager.shareMenuItem('${encodeURIComponent(item.name)}', '${encodeURIComponent(item.description)}', '${encodeURIComponent(window.location.href)}')">
-                <i class="fas fa-share-alt"></i>
-            </button>
-        `;
-
+        
         return `
             <div class="col-lg-6 mb-4">
                 <div class="card h-100">
                     <div class="card-body">
                         <h3 class="card-title">${item.name}</h3>
                         <p class="card-text">${item.description}</p>
-                        <div class="d-flex justify-content-between align-items-center mt-3">
-                            <span class="h5 mb-0">${priceDisplay}</span>
-                            ${addToCartButton}
-                            ${shareButton}
+                        <div class="menu-item-actions">
+                            <div class="price-tag">
+                                <span class="h5 mb-0">${priceDisplay}</span>
+                            </div>
+                            <div class="action-buttons">
+                                <button class="btn btn-share" onclick="menuManager.shareMenuItem('${encodeURIComponent(item.name)}', '${encodeURIComponent(item.description)}', '${encodeURIComponent(window.location.href)}')">
+                                    <i class="fas fa-share-alt"></i>
+                                </button>
+                                ${item.price ? `
+                                    <button class="btn btn-primary" onclick="cart.addItem('${item.id}', '${item.name}', ${item.price})">
+                                        <i class="fas fa-cart-plus"></i> Add to Cart
+                                    </button>
+                                ` : ''}
+                            </div>
                         </div>
                     </div>
                 </div>
