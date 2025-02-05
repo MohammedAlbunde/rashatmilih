@@ -1,20 +1,19 @@
 // Loading Animation
-document.addEventListener('DOMContentLoaded', () => {
+function hideLoadingOverlay() {
     const loadingOverlay = document.querySelector('.loading-overlay');
     if (loadingOverlay) {
-        loadingOverlay.style.opacity = '0';
-        loadingOverlay.style.display = 'none';
+        loadingOverlay.classList.add('hidden');
+        setTimeout(() => {
+            loadingOverlay.style.display = 'none';
+        }, 300);
     }
-});
+}
+
+// Hide loading overlay when DOM is ready
+document.addEventListener('DOMContentLoaded', hideLoadingOverlay);
 
 // Backup timeout to ensure loading overlay is removed
-setTimeout(() => {
-    const loadingOverlay = document.querySelector('.loading-overlay');
-    if (loadingOverlay) {
-        loadingOverlay.style.opacity = '0';
-        loadingOverlay.style.display = 'none';
-    }
-}, 3000); // Force remove after 3 seconds
+setTimeout(hideLoadingOverlay, 2000);
 
 // Scroll Animations
 const observerOptions = {
