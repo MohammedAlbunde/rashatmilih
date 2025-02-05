@@ -61,6 +61,13 @@ class Cart {
         const cartTotal = document.getElementById('cart-total');
         const orderDetails = document.getElementById('order-details');
         const orderTotal = document.getElementById('order-total');
+        const cartCount = document.getElementById('cart-count');
+        
+        // Update cart count in navbar
+        if (cartCount) {
+            const totalItems = this.items.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+        }
         
         if (cartItems) {
             cartItems.innerHTML = this.items.map(item => `
