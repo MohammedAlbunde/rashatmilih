@@ -278,6 +278,16 @@
     </div>
 
     <!-- Hidden Netlify Form -->
+    <form name="contact" netlify hidden>
+        <input type="text" name="name">
+        <input type="email" name="email">
+        <input type="tel" name="phone">
+        <select name="subject">
+            <option value="general">General Inquiry</option>
+            <option value="reservation">Make a Reservation</option>
+        </select>
+        <textarea name="message"></textarea>
+    </form>
     <form name="order" netlify hidden>
         <input type="text" name="customer-name">
         <input type="email" name="customer-email">
