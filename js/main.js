@@ -402,3 +402,58 @@ visitorCountRef.on('value', (snapshot) => {
 
 // Update count when page loads
 updateVisitorCount();
+
+// Contact Form Handler
+function handleContactSubmit(event) {
+    event.preventDefault();
+    
+    const form = event.target;
+    const formData = new FormData(form);
+    
+    // Show loading state
+    const submitButton = form.querySelector('button[type="submit"]');
+    const originalText = submitButton.innerHTML;
+    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    submitButton.disabled = true;
+
+    // Prepare the template parameters
+    const templateParams = {
+        from_name: formData.get('name'),
+        from_email: formData.get('email'),
+        phone: formData.get('phone') || 'Not provided',
+        subject: formData.get('subject'),
+        message: formData.get('message')
+    };
+
+    // Send the email using EmailJS
+    emailjs.send('service_hv6lib5', 'template_fowcqg6', templateParams)
+        .then(function() {
+            // Reset form
+            form.reset();
+            
+            // Reset button state
+            submitButton.innerHTML = originalText;
+            submitButton.disabled = false;
+            
+            // Show success modal
+            const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+            successModal.show();
+
+            // Add event listener for when modal is hidden
+            document.getElementById('successModal').addEventListener('hidden.bs.modal', function () {
+                // Smooth scroll to home section
+                document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
+            });
+        })
+        .catch(function(error) {
+            // Reset button state
+            submitButton.innerHTML = originalText;
+            submitButton.disabled = false;
+            
+            // Show error message
+            alert('Oops! Something went wrong. Please try again later.');
+            console.error('EmailJS error:', error);
+        });
+
+    return false;
+}
