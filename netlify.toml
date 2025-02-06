@@ -1,5 +1,5 @@
 [build]
-  publish = "."
+  publish = "/"
 
 [forms]
   contact = "contact"
@@ -19,3 +19,8 @@
   to = "https://:splat"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
