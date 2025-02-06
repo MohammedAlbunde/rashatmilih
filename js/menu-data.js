@@ -17,11 +17,11 @@ const menuItems = {
     },
     "lahmbaajin": {
         "id": "lahmbaajin",
-        "name": "Lahm Baajin لحم بعجين",
-        "nameEn": "Lahm Baajin",
+        "name": "Lahmbaajin لحم بعجين",
+        "nameEn": "Lahmbaajin",
         "nameAr": "لحم بعجين",
-        "price": 15.00,
-        "description": "A cherished Iraqi street food elevated to an art form - our handcrafted flatbread topped with perfectly spiced minced meat, fresh vegetables, and a touch of pomegranate molasses. Each piece is baked with care to achieve that perfect crispy-yet-tender texture."
+        "price": 12.00,
+        "description": "A beloved Iraqi street food elevated to perfection - thin, crispy flatbread topped with seasoned minced meat, fresh vegetables, and a blend of traditional spices. Each piece is baked to golden perfection in our stone oven."
     },
     "kleechah": {
         "id": "kleechah",
