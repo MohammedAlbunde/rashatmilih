@@ -100,7 +100,7 @@
                 <!-- Family Feast -->
                 <div class="col-md-4">
                     <div class="offer-card">
-                        <div class="offer-badge">SAVE 25%</div>
+                        <div class="offer-badge">SAVE 20$</div>
                         <h3>Family Feast</h3>
                         <p>Perfect for 4-6 people</p>
                         <ul class="offer-list">
@@ -110,7 +110,7 @@
                             <li>1 × Family Size Iraqi Salad</li>
                         </ul>
                         <div class="price">
-                            <span class="original">$125</span>
+                            <span class="original">$135</span>
                             <span class="discount">$115</span>
                         </div>
                         <div class="timer" data-ends="2025-02-03T23:59:59">
@@ -125,7 +125,7 @@
                     <div class="offer-card">
                         <div class="offer-badge">LUNCH DEAL</div>
                         <h3>Plate Special</h3>
-                        <p>Available 11 AM - 3 PM</p>
+                        <p>Valid from Monday to Friday</p>
                         <ul class="offer-list">
                             <li>5 × Kubba Halab</li>
                             <li>5 × Potato Chab</li>
@@ -134,8 +134,8 @@
                             
                         </ul>
                         <div class="price">
-                            <span class="original">$25</span>
-                            <span class="discount">$25 + Free Delivery</span>
+                            <span class="original">$35</span>
+                            <span class="discount">$30 + Free Delivery</span>
                         </div>
                         <div class="timer" data-ends="2025-02-02T15:00:00">
                             Available: <span class="countdown"></span>
@@ -488,18 +488,30 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
-        emailjs.init("YOUR_USER_ID"); // Replace with your EmailJS user ID
+        (function() {
+            emailjs.init("wjxBWNTp9sMHaZjZt");
+        })();
     </script>
-    <script src="js/main.js"></script>
-    <script src="js/cart.js"></script>
     <script src="js/menu-data.js"></script>
+    <script src="js/cart.js"></script>
     <script src="js/menu-manager.js"></script>
+    <script src="js/main.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            menuManager.renderMenu();
+            // Initialize menu
+            if (typeof menuManager !== 'undefined') {
+                menuManager.renderMenu();
+            } else {
+                console.error('Menu manager not loaded properly');
+            }
+            
+            // Initialize cart
+            if (typeof cart !== 'undefined') {
+                cart.initialize();
+            } else {
+                console.error('Cart not loaded properly');
+            }
         });
     </script>
-    <!-- Supabase -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 </body>
 </html>
