@@ -37,7 +37,7 @@ const menuItems = {
         "nameEn": "Sambusah",
         "nameAr": "سمبوسة",
         "price": 15.00,
-        "description": "Crispy triangles of joy filled with your choice of seasoned meat or vegetables. Each Sambusah is folded by hand with care and precision, creating the perfect pocket of flavors that transport you straight to the bustling streets of Baghdad."
+        "description": "Crispy triangles of joy filled with your choice of seasoned meat or vegetables. Each Sambusah is folded by hand and fried to golden perfection. Served with our homemade tamarind chutney, these delightful appetizers are perfect for sharing and bring the authentic taste of Iraqi street food to your table."
     },
     "potatoChap": {
         "id": "potatoChap",
