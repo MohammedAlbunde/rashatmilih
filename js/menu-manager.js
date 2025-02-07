@@ -1,6 +1,18 @@
 class MenuManager {
     constructor() {
+        console.log('MenuManager: Initializing...');
         this.menuContainer = document.getElementById('menu-items-container');
+        if (!this.menuContainer) {
+            console.error('MenuManager: Could not find menu-items-container element');
+            return;
+        }
+        
+        if (typeof menuItems === 'undefined') {
+            console.error('MenuManager: menuItems is not defined. Make sure menu-data.js is loaded first');
+            return;
+        }
+        
+        console.log('MenuManager: menuItems loaded:', menuItems);
         this.items = menuItems; // from menu-data.js
     }
 
@@ -55,20 +67,30 @@ class MenuManager {
     }
 
     renderMenu() {
-        if (!this.menuContainer) return;
+        console.log('MenuManager: Rendering menu...');
+        if (!this.menuContainer) {
+            console.error('MenuManager: Cannot render menu - container not found');
+            return;
+        }
         
         let menuHTML = '';
         // First render special note if exists
         if (this.items.specialNote) {
             menuHTML += this.createMenuItemCard(this.items.specialNote);
         }
+        
+        console.log('MenuManager: Creating menu items...');
         // Then render all other items
         for (const itemId in this.items) {
             if (itemId !== 'specialNote') {
+                console.log(`MenuManager: Creating card for ${itemId}`);
                 menuHTML += this.createMenuItemCard(this.items[itemId]);
             }
         }
+        
+        console.log('MenuManager: Setting innerHTML...');
         this.menuContainer.innerHTML = menuHTML;
+        console.log('MenuManager: Menu rendered successfully');
     }
 
     updatePrice(itemId, newPrice) {
@@ -92,8 +114,15 @@ class MenuManager {
     }
 }
 
-// Initialize menu manager
+// Initialize menu manager and render menu
+console.log('Creating MenuManager instance...');
 const menuManager = new MenuManager();
+
+// Wait for DOM to be ready
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM Content Loaded - Rendering menu...');
+    menuManager.renderMenu();
+});
 
 // Example usage:
 // To update a price: menuManager.updatePrice('dolma', 15.99);

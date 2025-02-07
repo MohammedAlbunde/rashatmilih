@@ -494,29 +494,43 @@
             emailjs.init("wjxBWNTp9sMHaZjZt");
         })();
     </script>
-    <script src="js/menu-data.js"></script>
-    <script src="js/cart.js"></script>
-    <script src="js/menu-manager.js"></script>
-    <script src="js/main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script src="js/contact.js"></script>
-    <script src="js/order.js"></script>
+    
+    <!-- Menu Scripts -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize menu
-            if (typeof menuManager !== 'undefined') {
-                menuManager.renderMenu();
-            } else {
-                console.error('Menu manager not loaded properly');
-            }
-            
-            // Initialize cart
-            if (typeof cart !== 'undefined') {
-                cart.initialize();
-            } else {
-                console.error('Cart not loaded properly');
+        // Error handler for script loading
+        window.addEventListener('error', function(e) {
+            if (e.filename) {
+                console.error('Script error in:', e.filename, 'Line:', e.lineno, 'Error:', e.message);
             }
         });
     </script>
+    <script src="js/menu-data.js"></script>
+    <script>
+        // Verify menu data loaded
+        if (typeof menuItems === 'undefined') {
+            console.error('menu-data.js failed to load properly');
+        } else {
+            console.log('menu-data.js loaded successfully');
+        }
+    </script>
+    <script src="js/menu-manager.js"></script>
+    <script>
+        // Initialize menu after all scripts are loaded
+        window.addEventListener('load', function() {
+            console.log('Window loaded - checking menu initialization');
+            if (typeof menuManager === 'undefined') {
+                console.error('menu-manager.js failed to load properly');
+            } else {
+                console.log('Rendering menu...');
+                menuManager.renderMenu();
+            }
+        });
+    </script>
+
+    <!-- Other Scripts -->
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/contact.js"></script>
+    <script src="js/order.js"></script>
 </body>
 </html>
