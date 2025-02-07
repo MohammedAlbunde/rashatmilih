@@ -4,8 +4,9 @@ class MenuManager {
         this.items = menuItems; // from menu-data.js
     }
 
-    formatPrice(price) {
-        return price ? price.toFixed(2) : '';
+    formatPrice(price, unit) {
+        if (!price) return '';
+        return `${price.toFixed(2)} CAD${unit ? ' ' + unit : ''}`;
     }
 
     createSpecialNote(item) {
@@ -27,7 +28,7 @@ class MenuManager {
         }
 
         // For regular menu items
-        const priceDisplay = item.price ? `$${this.formatPrice(item.price)}` : 'Coming Soon';
+        const priceDisplay = item.price ? this.formatPrice(item.price, item.unit) : 'Coming Soon';
         
         return `
             <div class="col-lg-6 mb-4">
