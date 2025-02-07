@@ -1,6 +1,6 @@
 // EmailJS configuration
 (function() {
-    emailjs.init("YOUR_USER_ID"); // Replace with your EmailJS user ID
+    emailjs.init("wjxBWNTp9sMHaZjZt");
 })();
 
 // Contact form submission
@@ -21,7 +21,7 @@ document.getElementById('contact-form').addEventListener('submit', function(even
     };
 
     // Send email using EmailJS
-    emailjs.send('default_service', 'template_id', { // Replace with your service and template IDs
+    emailjs.send('service_hv6lib5', 'template_fowcqg6', {
         from_name: formData.name,
         reply_to: formData.email,
         message: formData.message
