@@ -26,7 +26,7 @@ document.getElementById('order-form').addEventListener('submit', function(event)
     ).join('\n');
 
     // Send order email using EmailJS
-    emailjs.send('default_service', 'order_template', { // Replace with your service and template IDs
+    emailjs.send('service_hv6lib5', 'template_ndtj6ce', {
         from_name: formData.name,
         reply_to: formData.email,
         phone: formData.phone,
