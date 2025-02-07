@@ -1,4 +1,5 @@
-const menuItems = {
+// Define menu items globally
+window.menuItems = {
     "dolma": {
         "id": "dolma",
         "name": "Dolma دولمة",
@@ -83,4 +84,4 @@ const menuItems = {
 };
 
 // Log to verify data is loaded
-console.log('menu-data.js loaded, menuItems:', Object.keys(menuItems));
+console.log('menu-data.js loaded, menuItems:', Object.keys(window.menuItems));
