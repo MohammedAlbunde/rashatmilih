@@ -4,7 +4,7 @@ const menuItems = {
         "name": "Dolma دولمة",
         "nameEn": "Dolma",
         "nameAr": "دولمة",
-        "price": 25.00,
+        "price": 25.00 per kg,
         "description": "A labor of love passed down through generations - tender grape leaves delicately wrapped around a harmonious blend of aromatic rice, minced meat, and our family's secret spice mixture. Each roll is carefully crafted to bring you the authentic taste of Baghdad's home cooking."
     },
     "kubbah": {
@@ -12,7 +12,7 @@ const menuItems = {
         "name": "Kubbah Rice كبة حلب",
         "nameEn": "Kubbah Rice",
         "nameAr": "كبة حلب",
-        "price": 15.00CAD / 10pcs,
+        "price": 15.00/10pcs,
         "description": "Our signature Kubbah Rice is a testament to Iraqi craftsmanship - perfectly shaped rice shells filled with seasoned ground meat, pine nuts, and aromatic spices. Each bite tells a story of our grandmother's kitchen, where this recipe was perfected with patience and love."
     },
     "lahmbaajin": {
@@ -20,7 +20,7 @@ const menuItems = {
         "name": "Lahmbaajin لحم بعجين",
         "nameEn": "Lahmbaajin",
         "nameAr": "لحم بعجين",
-        "price": 15 CAD/10pcs,
+        "price": 15.00/10pcs,
         "description": "A beloved Iraqi street food elevated to perfection - thin, crispy flatbread topped with seasoned minced meat, fresh vegetables, and a blend of traditional spices. Each piece is baked to golden perfection in our stone oven."
     },
     "kleechah": {
@@ -28,7 +28,7 @@ const menuItems = {
         "name": "Kleechah كليجة",
         "nameEn": "Kleechah",
         "nameAr": "كليجة",
-        "price": 25.00 CAD/Kg,
+        "price": 25.00 per kg,
         "description": "These beloved Iraqi cookies are handcrafted with love using our family's traditional recipe from Baghdad. Available with a variety of delightful fillings - from classic dates to rich walnuts, crunchy peanuts, and exotic coconut. Each filling offers its own unique taste experience and is priced accordingly. Our signature cardamom-infused dough is carefully decorated by hand with traditional patterns, making each piece a work of art that tells the story of our heritage. *Prices vary based on filling choice - please inquire for specific options."
     },
     "sambusah": {
@@ -36,7 +36,7 @@ const menuItems = {
         "name": "Sambusah سمبوسة",
         "nameEn": "Sambusah",
         "nameAr": "سمبوسة",
-        "price": 15.00CAD/ 10pcs,
+        "price": 15.00/10pcs,
         "description": "Crispy triangles of joy filled with your choice of seasoned meat or vegetables. Each Sambusah is folded by hand and fried to golden perfection. Served with our homemade tamarind chutney, these delightful appetizers are perfect for sharing and bring the authentic taste of Iraqi street food to your table."
     },
     "potatoChap": {
@@ -44,7 +44,7 @@ const menuItems = {
         "name": "Potato Chap بتيتة جاب",
         "nameEn": "Potato Chap",
         "nameAr": "بتيتة جاب",
-        "price": 18.00CAD/10 pcs,
+        "price": 18.00/ 10 pcs,
         "description": "A beloved Iraqi street food elevated to perfection - crispy golden exterior giving way to a heavenly filling of seasoned mashed potatoes and tender meat. Each piece is carefully shaped by hand and fried to achieve that perfect crunch. Our family recipe ensures each bite is packed with authentic Iraqi flavors and memories of Baghdad's vibrant streets."
     },
     "turkishSmeet": {
@@ -52,7 +52,7 @@ const menuItems = {
         "name": "Turkish Smeet سميط تركي",
         "nameEn": "Turkish Smeet",
         "nameAr": "سميط تركي",
-        "price": 20.00CAD/ 10 pcs,
+        "price": 20.00/ 10 pcs,
         "description": "Delightfully crispy Turkish-style sesame rings, baked to golden perfection. Our Smeet brings the taste of Istanbul's streets to your home, with a perfectly chewy interior and a generous coating of toasted sesame seeds. Available in packs of 10 pieces, these make the perfect accompaniment to tea or coffee. Each batch is freshly baked using our special recipe that combines tradition with a touch of modern flair."
     },
     "biryani": {
