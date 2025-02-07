@@ -35,14 +35,10 @@ document.getElementById('order-form').addEventListener('submit', function(event)
         total: `$${total.toFixed(2)}`
     })
     .then(function() {
-        // Show success message
-        alert('Order placed successfully! We will contact you soon.');
         // Clear cart
         localStorage.removeItem('cart');
-        // Reset form
-        document.getElementById('order-form').reset();
-        // Update cart display
-        updateCartDisplay();
+        // Redirect to success page
+        window.location.href = 'order-success.html';
     })
     .catch(function(error) {
         // Show error message

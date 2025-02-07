@@ -27,10 +27,8 @@ document.getElementById('contact-form').addEventListener('submit', function(even
         message: formData.message
     })
     .then(function() {
-        // Show success message
-        alert('Message sent successfully!');
-        // Reset form
-        document.getElementById('contact-form').reset();
+        // Redirect to success page
+        window.location.href = 'success.html';
     })
     .catch(function(error) {
         // Show error message
