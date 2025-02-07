@@ -81,3 +81,6 @@ const menuItems = {
         "description": "A crown jewel of Iraqi cuisine - whole chicken tenderly stuffed with aromatic rice, minced meat, nuts, and raisins. Slow-cooked to perfection, this dish represents the epitome of Iraqi family gatherings and celebrations."
     }
 };
+
+// Log to verify data is loaded
+console.log('menu-data.js loaded, menuItems:', Object.keys(menuItems));
