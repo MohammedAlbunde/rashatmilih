@@ -18,7 +18,16 @@ window.menuItems = {
         "unit": "10pcs",
         "description": "Our signature Kubbah Rice is a testament to Iraqi craftsmanship - perfectly shaped rice shells filled with seasoned ground meat, pine nuts, and aromatic spices. Each bite tells a story of our grandmother's kitchen, where this recipe was perfected with patience and love."
     },
-    "lahmbaajin": {
+    "Kubbah Saray": {
+        "id": "kubbah",
+        "name": "Kubbah Saray كبة سراي",
+        "nameEn": "Kubbah Saray",
+        "nameAr": "كبة سراي",
+        "price": 18.00,
+        "unit": "10pcs",
+        "description": "Our signature Kubbah Saray is a testament to Iraqi craftsmanship - perfectly shaped bulgur shells filled with seasoned ground meat, pine nuts, and aromatic spices. Each bite tells a story of our grandmother's kitchen, where this recipe was perfected with patience and love."
+    },
+        "lahmbaajin": {
         "id": "lahmbaajin",
         "name": "Lahmbaajin لحم بعجين",
         "nameEn": "Lahmbaajin",
@@ -80,15 +89,6 @@ window.menuItems = {
         "price": 45.00,
         "unit": "whole chicken",
         "description": "A crown jewel of Iraqi cuisine - whole chicken tenderly stuffed with aromatic rice, minced meat, nuts, and raisins. Slow-cooked to perfection, this dish represents the epitome of Iraqi family gatherings and celebrations."
-    },
-    "weekendBrunch": {
-        "id": "weekendBrunch",
-        "name": "Weekend Family Brunch فطور العائلة",
-        "nameEn": "Weekend Family Brunch",
-        "nameAr": "فطور العائلة",
-        "price": 85.00,
-        "unit": "set",
-        "description": "Start your weekend with our authentic Iraqi breakfast spread. Perfect for 4-6 people, this feast includes fresh-baked Iraqi bread, hummus, falafel, eggs with spices, and our signature tea blend. Available Saturday and Sunday mornings."
     },
 };
 

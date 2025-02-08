@@ -806,8 +806,8 @@ body {
     height: 120px;
     border-radius: 50%;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     animation: float 3s ease-in-out infinite;
     cursor: pointer;
     transition: transform 0.3s ease;
@@ -1238,5 +1238,63 @@ html {
     
     .contact-section .card {
         margin-bottom: 2rem;
+    }
+}
+
+/* Ramadan Banner */
+.ramadan-banner {
+    background: linear-gradient(135deg, #1e4147 0%, #0a1f24 100%);
+    color: #fff;
+    padding: 1rem 0;
+    position: relative;
+    overflow: hidden;
+    margin-top: 56px; /* Account for fixed navbar */
+}
+
+.ramadan-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../images/pattern.svg') repeat;
+    opacity: 0.1;
+}
+
+.ramadan-banner .container {
+    position: relative;
+    z-index: 1;
+}
+
+.ramadan-banner h3 {
+    color: #ffd700;
+    margin-bottom: 0.5rem;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.ramadan-banner p {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.ramadan-banner .countdown {
+    color: #ffd700;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.ramadan-banner .btn-outline-light:hover {
+    background-color: #ffd700;
+    border-color: #ffd700;
+    color: #1e4147;
+}
+
+@media (max-width: 768px) {
+    .ramadan-banner {
+        text-align: center;
+    }
+    .ramadan-banner .btn {
+        margin-top: 1rem;
     }
 }
