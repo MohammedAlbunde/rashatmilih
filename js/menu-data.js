@@ -81,15 +81,15 @@ window.menuItems = {
         "unit": "whole chicken",
         "description": "A crown jewel of Iraqi cuisine - whole chicken tenderly stuffed with aromatic rice, minced meat, nuts, and raisins. Slow-cooked to perfection, this dish represents the epitome of Iraqi family gatherings and celebrations."
     },
-    "ramadanSpecial": {
-        "id": "ramadanSpecial",
-        "name": "Ramadan Special إفطار رمضان",
-        "nameEn": "Ramadan Special",
-        "nameAr": "إفطار رمضان",
-        "price": 125.00,
+    "weekendBrunch": {
+        "id": "weekendBrunch",
+        "name": "Weekend Family Brunch فطور العائلة",
+        "nameEn": "Weekend Family Brunch",
+        "nameAr": "فطور العائلة",
+        "price": 85.00,
         "unit": "set",
-        "description": "Our special Ramadan feast includes 1kg Mixed Dolma, 2 Stuffed Chickens, 12pcs Kubba Halab, Large Iraqi Salad, Fresh Dates, and Large Lentil Soup. Perfect for breaking fast with family and friends during the holy month. Pre-order available for guaranteed delivery during Ramadan."
-    }
+        "description": "Start your weekend with our authentic Iraqi breakfast spread. Perfect for 4-6 people, this feast includes fresh-baked Iraqi bread, hummus, falafel, eggs with spices, and our signature tea blend. Available Saturday and Sunday mornings."
+    },
 };
 
 // Log to verify data is loaded
