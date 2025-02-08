@@ -18,6 +18,15 @@ window.menuItems = {
         "unit": "10pcs",
         "description": "Our signature Kubbah Rice is a testament to Iraqi craftsmanship - perfectly shaped rice shells filled with seasoned ground meat, pine nuts, and aromatic spices. Each bite tells a story of our grandmother's kitchen, where this recipe was perfected with patience and love."
     },
+    "Kubbah Saray": {
+    "id": "kubbah",
+    "name": "Kubbah Saray كبة سراي",
+    "nameEn": "Kubbah Saray",
+    "nameAr": "كبة سراي",
+    "price": 18.00,
+    "unit": "10pcs",
+    "description": "Our signature Kubbah Saray is a testament to Iraqi craftsmanship - perfectly shaped bulgur shells filled with seasoned ground meat, pine nuts, and aromatic spices. Each bite tells a story of our grandmother's kitchen, where this recipe was perfected with patience and love."
+    },    
     "lahmbaajin": {
         "id": "lahmbaajin",
         "name": "Lahmbaajin لحم بعجين",
