@@ -23,7 +23,7 @@ window.menuItems = {
         "name": "Kubbah Saray كبة سراي",
         "nameEn": "Kubbah Saray",
         "nameAr": "كبة سراي",
-        "price": 18.00,
+        "price": 20.00,
         "unit": "10pcs",
         "description": "Our signature Kubbah Saray is a testament to Iraqi craftsmanship - perfectly shaped bulgur shells filled with seasoned ground meat, pine nuts, and aromatic spices. Each bite tells a story of our grandmother's kitchen, where this recipe was perfected with patience and love."
     },
