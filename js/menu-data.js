@@ -86,7 +86,7 @@ window.menuItems = {
         "name": "Stuffed Chicken دجاج محشي",
         "nameEn": "Stuffed Chicken",
         "nameAr": "دجاج محشي",
-        "price": 45.00,
+        "price": 50.00,
         "unit": "whole chicken",
         "description": "A crown jewel of Iraqi cuisine - whole chicken tenderly stuffed with aromatic rice, minced meat, nuts, and raisins. Slow-cooked to perfection, this dish represents the epitome of Iraqi family gatherings and celebrations."
     },
