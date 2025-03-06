@@ -3,31 +3,7 @@
   
 </div>
 
-<!-- Top Right: Countdown -->
-<div style="position: fixed; top: 15px; right: 20px; color: #dbf01c; z-index: 2000; text-align: center;">
-    Time until Ramadan:
-    <div id="ramadanCounter" style="font-weight: bold;"></div>
-</div>
-
-<!-- Middle Left: Arabic Text -->
-<div style="position: fixed; left: 20px; top: 30%; transform: translateY(50%); color: #D4AF37; z-index: 2000; writing-mode: vertical-rl; text-orientation: mixed; transform: rotate(180deg); font-family: 'Noto Kufi Arabic', sans-serif; font-size: 1.5rem;">
-    رمضان كريم كل عام وانتم بالف خير
-</div><script>
-function updateRamadanCounter() {
-    const ramadanDate = new Date('2025-02-28T00:00:00');
-    const now = new Date();
-    const difference = ramadanDate - now;
-    
-    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-    
-    document.getElementById('ramadanCounter').textContent = 
-        `${days} days, ${hours} hours, ${minutes} minutes`;
-}
-updateRamadanCounter();
-setInterval(updateRamadanCounter, 60000);
-</script><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
